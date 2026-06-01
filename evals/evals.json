@@ -1,0 +1,101 @@
+{
+  "skill_name": "prompt-coach",
+  "evals": [
+    {
+      "id": 1,
+      "name": "xml-tags-detection",
+      "prompt": "I need you to analyze this sales data, here are the numbers 100 200 300, and also check the competitor pricing from last quarter, and make a chart",
+      "expected_output": "Completes the analysis task, then recommends XML tags to separate the data, task description, and context into distinct tagged sections.",
+      "target_practice": "Structure prompts with XML tags",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "role-detection",
+      "prompt": "Write me a cover letter for a healthcare compliance position at a mid-size hospital system. I have 8 years of experience in HIPAA auditing and risk management.",
+      "expected_output": "Writes the cover letter, then recommends giving Claude a role — e.g., 'You are an experienced healthcare hiring manager' — to shape the tone and perspective of the letter.",
+      "target_practice": "Give Claude a role",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "examples-detection",
+      "prompt": "Categorize these support tickets as urgent, normal, or low priority: 'Cannot access patient records', 'Logo looks blurry on printouts', 'Billing system double-charged a client', 'Requesting dark mode option', 'SSO login broken for entire department'",
+      "expected_output": "Categorizes the tickets, then recommends providing 3-5 example categorizations so Claude knows exactly where the user draws the line between categories.",
+      "target_practice": "Use examples effectively",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "clear-and-direct-detection",
+      "prompt": "Make something nice for my presentation tomorrow",
+      "expected_output": "Asks clarifying questions or produces something generic, then recommends being specific about format (slides? one-pager?), length, audience, style, and topic.",
+      "target_practice": "Be clear and direct",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "context-why-detection",
+      "prompt": "Always use bullet points in your response. Keep everything under 3 sentences per point. No headers.",
+      "expected_output": "Follows the formatting rules, then recommends explaining WHY — e.g., 'because this will be pasted into Slack where people skim' — so Claude can generalize the intent.",
+      "target_practice": "Add context to improve performance",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "long-context-detection",
+      "prompt": "Here's my question: what are the key risks and mitigation strategies? Now here's the full 50-page risk assessment document our team put together last quarter:\n\n[Imagine a very long document pasted here — 10,000+ words of risk assessment content covering cybersecurity, operational risk, regulatory compliance, financial exposure, and vendor dependencies]",
+      "expected_output": "Answers the question about risks, then recommends putting the long document FIRST and the question LAST — Claude handles long context better when the query comes at the end.",
+      "target_practice": "Long context prompting",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "positive-framing-detection",
+      "prompt": "Write a product description for our new project management app. Don't use jargon. Don't make it too long. Don't use bullet points. Don't sound like a marketing brochure. Don't use exclamation marks.",
+      "expected_output": "Writes the product description, then recommends reframing negatives as positives — e.g., 'Use plain language, keep to 150 words, write in flowing prose, sound like a trusted colleague explaining the product, use calm confident punctuation.'",
+      "target_practice": "Control output format (positive framing)",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "thinking-detection",
+      "prompt": "Calculate the optimal pricing strategy for our SaaS product considering our server costs ($2.40/user/month), competitor pricing (Competitor A at $15/mo, B at $25/mo, C at $8/mo), market positioning as a premium tool, and survey data showing customers will pay $12-$20/month",
+      "expected_output": "Provides a pricing recommendation, then recommends asking Claude to think step-by-step through each factor before converging on a final answer — complex multi-variable analysis benefits from structured reasoning.",
+      "target_practice": "Leverage thinking capabilities",
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "chaining-detection",
+      "prompt": "Research AI trends in healthcare for 2025, write a comprehensive 10-page report with citations, create a 1-page executive summary from the report, and then generate a 12-slide presentation deck based on the executive summary",
+      "expected_output": "Acknowledges the scope, then recommends breaking this into sequential prompts — research first, review the outline, then write the report, review it, then summary, then slides. Each step builds on reviewed output from the previous one.",
+      "target_practice": "Chain complex prompts",
+      "files": []
+    },
+    {
+      "id": 10,
+      "name": "success-criteria-detection",
+      "prompt": "Find me information about HIPAA compliance changes that happened recently",
+      "expected_output": "Provides HIPAA information, then recommends defining success criteria — how many changes? what time period? what depth? who's the audience? what would make this answer actionable?",
+      "target_practice": "Provide clear success criteria for research",
+      "files": []
+    },
+    {
+      "id": 11,
+      "name": "parallel-tools-detection",
+      "prompt": "I need you to read the file contracts/vendor-a.pdf, then read contracts/vendor-b.pdf, then read contracts/vendor-c.pdf, then read contracts/vendor-d.pdf, then read contracts/vendor-e.pdf, and tell me what each one covers and if any are expiring soon",
+      "expected_output": "Reads the files and summarizes them, then recommends noting these reads are independent — Claude can process all 5 simultaneously rather than waiting for each to finish before starting the next.",
+      "target_practice": "Use parallel tool calling",
+      "files": []
+    },
+    {
+      "id": 12,
+      "name": "hallucination-prevention-detection",
+      "prompt": "What does the function on line 42 of server.js do? And is the error handling in the auth middleware solid or are there gaps?",
+      "expected_output": "Reads the file first (or notes it needs to), then recommends always asking Claude to read the actual file before answering — rather than guessing about code that may have changed since any training data.",
+      "target_practice": "Minimize hallucinations",
+      "files": []
+    }
+  ]
+}
