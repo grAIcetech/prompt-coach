@@ -80,6 +80,6 @@ prompt-coach/
 
 ## Credits
 
-Built by [grAIce AI Studios](https://github.com/grAIcetech). MIT License.
+Built by [grAIce Tech](https://github.com/grAIcetech). MIT License.
 
 Best practices sourced from [Anthropic's official prompting guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-prompting-best-practices).
