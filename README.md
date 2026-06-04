@@ -1,85 +1,68 @@
 # prompt-coach
 
-[![Claude Skill](https://img.shields.io/badge/Claude-Skill-blueviolet)](https://docs.anthropic.com)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-green)](CHANGELOG.md)
-
-**One prompting best practice per response. Watches how you prompt, suggests a better way.**
+Add one relevant prompting improvement after substantive Claude requests.
 
 ![prompt-coach preview](prompt-coach-preview.png)
 
-## Install
+## Who it is for
+
+prompt-coach is for people who work with Claude often enough that prompt quality affects their output, but who do not want a lecture or a separate prompting workflow.
+
+It is part of grAIce Tech's work on practical AI systems, agentic workflows, and operational clarity.
+
+## Problem it solves
+
+Most prompting advice is either too broad to apply in the moment or too intrusive to use while work is moving. Teams need small, contextual feedback that improves the next request without interrupting the current one.
+
+prompt-coach completes the user's request first, then adds one short prompting nudge only when it is useful.
+
+## Quickstart
 
 ```bash
 cp -r prompt-coach ~/.claude/skills/
 ```
 
-## What It Detects
+## Example output
 
-- **Missing examples** — nudges you to add 3-5 shots when categories or styles are ambiguous
-- **Vague instructions** — catches prompts that leave format, length, or audience unspecified
-- **No success criteria** — suggests defining what "good" looks like before Claude starts
-- **Missing context** — recommends explaining the WHY behind your constraints
+User prompt:
 
-<details>
-<summary>All 12 best practices covered</summary>
+> Categorize these support tickets as urgent, normal, or low.
 
-1. Be clear and direct
-2. Add context to improve performance
-3. Use examples effectively
-4. Structure prompts with XML tags
-5. Give Claude a role
-6. Long context prompting
-7. Control output format (positive framing)
-8. Leverage thinking capabilities
-9. Chain complex prompts
-10. Use parallel tool calling
-11. Provide clear success criteria for research
-12. Minimize hallucinations
+Claude completes the categorization, then may add:
 
-Full reference with before/after examples: [`references/best-practices.md`](references/best-practices.md)
-</details>
-
-## How It Works
-
-- **Does your work first.** Completes whatever you asked for — never replaces the task.
-- **One tip per response.** Picks the single most impactful practice for your specific prompt.
-- **Stays quiet when you're good.** Simple questions and solid prompts get no nudge.
-- **Peer tone, not professor tone.** "btw, you could try..." not "IMPORTANT: You should always..."
-
-### Example
-
-You prompt:
-> "Categorize these support tickets as urgent, normal, or low"
-
-Claude completes the categorization, then adds:
-
-```
+```text
 ---
-Prompt tip — Use Examples Effectively
-You could include 3-5 example categorizations so Claude knows exactly where you
-draw the line between "urgent" and "normal." One person's urgent is another's normal.
-docs.anthropic.com/.../multishot-prompting
+Prompt tip - Use Examples Effectively
+You could include 3-5 example categorizations so Claude knows where you
+draw the line between "urgent" and "normal."
 ```
 
-## File Structure
+## How it works
 
-```
-prompt-coach/
-├── SKILL.md                    # Skill definition (triggers, behavior, tone)
-├── references/
-│   ├── best-practices.md       # All 12 practices with examples & doc links
-│   └── detection-patterns.md   # Pattern-matching rules for each practice
-├── evals/
-│   └── evals.json              # 12 test cases — one per best practice
-├── prompt-coach-preview.png    # Preview screenshot
-├── README.md
-├── LICENSE
-└── CHANGELOG.md
-```
+The skill checks substantive prompts against 12 prompting practices from Anthropic's official prompting guidance.
 
-## Credits
+It can detect issues such as:
 
-Built by [grAIce Tech](https://github.com/grAIcetech). MIT License.
+- Missing examples for category or style-sensitive work
+- Vague instructions with unclear format, audience, or length
+- Missing success criteria
+- Missing context about why the task matters
+- Complex requests that would benefit from structure or chaining
 
-Best practices sourced from [Anthropic's official prompting guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-prompting-best-practices).
+The behavior is defined in `SKILL.md`. Supporting references live in `references/`, and evaluation cases live in `evals/`.
+
+## Status / roadmap
+
+Status: usable Claude skill with 12 detection patterns and eval coverage.
+
+Planned cleanup:
+
+- Refine examples as prompting guidance evolves.
+- Keep nudges brief and non-intrusive.
+- Add more evals for false positives and cases where the skill should stay quiet.
+
+## License
+
+MIT. Built by [grAIce Tech](https://github.com/grAIcetech).
+
+Best practices are sourced from [Anthropic's official prompting guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-prompting-best-practices).
